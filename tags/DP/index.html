@@ -6,12 +6,12 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Micoael_Primo</title>
+  <title>Tag: DP | Micoael_Primo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="我太弱了">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Micoael_Primo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/tags/DP/index.html">
 <meta property="og:site_name" content="Micoael_Primo">
 <meta property="og:description" content="我太弱了">
 <meta property="og:locale" content="en_US">
@@ -146,80 +146,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-不等数列题解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2020" class="archive-year">2020</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2020/09/03/%E4%B8%8D%E7%AD%89%E6%95%B0%E5%88%97%E9%A2%98%E8%A7%A3/" class="archive-article-date">
+  	<time datetime="2020-09-03T05:40:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-03</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/03/%E4%B8%8D%E7%AD%89%E6%95%B0%E5%88%97%E9%A2%98%E8%A7%A3/">不等数列题解</a>
+      <a class="archive-article-title" href="/2020/09/03/%E4%B8%8D%E7%AD%89%E6%95%B0%E5%88%97%E9%A2%98%E8%A7%A3/">不等数列题解</a>
     </h1>
   
 
-        
-        <a href="/2020/09/03/%E4%B8%8D%E7%AD%89%E6%95%B0%E5%88%97%E9%A2%98%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-09-03T05:40:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>今天模拟赛正好做到了这道题。不难发现这是一道递推的题目。</p>
-<h4 id="在考试时候的做法"><a href="#在考试时候的做法" class="headerlink" title="在考试时候的做法"></a><strong>在考试时候的做法</strong></h4><ul>
-<li>首先保证自己的部分分可以拿到。</li>
-<li>观察数据范围$n\leq 10$. 枚举复杂度$\mathcal O(n!)$.</li>
-<li>利用C++ <code>algorithm</code>里面的的<code>next_permutation</code>不难写出暴力代码。</li>
-</ul>
-<h4 id="考虑正解"><a href="#考虑正解" class="headerlink" title="考虑正解"></a><strong>考虑正解</strong></h4><ul>
-<li>定义状态$f[i][j]$表示考虑前面$i$个数字，有$j$个$&lt;$符号。</li>
-<li>我们观察这样有什么性质：</li>
-</ul>
-<p><strong>性质1.</strong> 假设当前排序列为$a$如果考虑第$i+1$个数字的时候，$\forall a[x]&lt;(i+1), x\in[0,i]$.</p>
-<p><strong>非形式化的</strong>. 由$i$转移到$i+1$的时候，$i+1$号元素是这个序列里面最大的一个数。</p>
-<p><strong>说明</strong>. 根据定义，$f[i][j]$表示仅仅考虑前$i$个数字，则每一项不会超过$i$.转移时需要考虑$i+1$号数字参与进来的情况。因为$i+1&gt;i$,原式成立。</p>
-<p><strong>性质2.</strong> 考虑一个长度为$i$排列好的序列。其中有$j$个小于号。考虑将第$i+1$个数插入序列之后，小于号的个数只会不变或者增加$1$.并且有$i-j$种情况使得小于号的数量会增加1，有$j+1$种情况使得小于号数量不变。</p>
-<p><strong>说明</strong>. 分类讨论：</p>
-<ul>
-<li>假设插入的数落在$x,y$之间。<ul>
-<li>且$x&gt;y$. <ul>
-<li>设插入的数为$t$。插入之后大小变化为$x<t>y$.小于号数目增加了1. $(1)$</li>
-</ul>
-</li>
-<li>且$x&lt;y$.<ul>
-<li>设插入的数为$t$。插入之后大小变化为$x<t>y$.小于号数量不发生改变。 $(2)$</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>假设插入的数在开头。并且设开头的数为$x$<ul>
-<li>设插入的数为$t$. 由<em>性质1</em>可以得到：$t&gt;x$.小于号数量不变。 $(3)$</li>
-</ul>
-</li>
-<li>假设插入的数在结尾。并且设开头的数为$y$<ul>
-<li>设插入的数为$t$. 由<em>性质1</em>可以得到：$y&lt;t$.小于号数量增加了1。 $(4)$</li>
-</ul>
-</li>
-</ul>
-<p>由于$f[i][j]$表示前$i$个字符中小于号有$j$个，不难得到大于号的个数为$i-j-1$. 考虑$i-1 \to i$的转移使得小于号数量增多1的有$(i-j-1)+(1)=i-j$(情况1和4)。不变的有$(j+1)$个。（情况2和情况3）</p>
-<ul>
-<li><p>由于计数原理（加乘原理），可以发现：</p>
-<script type="math/tex; mode=display">
-f[i][j] = f[i-1][j]\times (j+1)+f[i-1][j-1]\times (i-j)</script></li>
-<li><p>得到正解。</p>
-</li>
-</ul>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MOD 2015</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> f[<span class="number">1005</span>][<span class="number">1005</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x;</span><br><span class="line">    x=<span class="number">0</span>;<span class="keyword">char</span> ch=<span class="number">0</span>;<span class="keyword">bool</span> sign=<span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">while</span>(ch &lt; <span class="string">&#x27;0&#x27;</span> || ch &gt; <span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">        sign|=(ch == <span class="string">&#x27;-&#x27;</span>);</span><br><span class="line">        ch=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!(ch &lt; <span class="string">&#x27;0&#x27;</span> || ch &gt; <span class="string">&#x27;9&#x27;</span>))&#123;</span><br><span class="line">        x=x*<span class="number">10</span>+(ch^<span class="number">48</span>);</span><br><span class="line">        ch=getchar();</span><br><span class="line">    &#125;</span><br><span class="line">    x=sign ? -x : x;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">print</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(x&lt;<span class="number">0</span>)<span class="built_in">putchar</span>(<span class="string">&#x27;-&#x27;</span>),x=-x;</span><br><span class="line">    <span class="keyword">if</span>(x&gt;<span class="number">9</span>)print(x/<span class="number">10</span>);</span><br><span class="line">    <span class="built_in">putchar</span>(x%<span class="number">10</span>+<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">1005</span>;i++)&#123;</span><br><span class="line">		f[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;<span class="number">1005</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;<span class="number">1005</span>;j++)&#123;</span><br><span class="line">			f[i][j] = (f[i<span class="number">-1</span>][j<span class="number">-1</span>]*(i-j) + f[i<span class="number">-1</span>][j]*(j+<span class="number">1</span>))%MOD;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> n=read(),p=read();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,f[n][p]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>需要在DP的时候多多观察原始式子和状态的定义和其拥有的性质，才可以高速解决。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -231,120 +185,19 @@ f[i][j] = f[i-1][j]\times (j+1)+f[i-1][j-1]\times (i-j)</script></li>
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/03/%E4%B8%8D%E7%AD%89%E6%95%B0%E5%88%97%E9%A2%98%E8%A7%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-OI试题研究" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/02/OI%E8%AF%95%E9%A2%98%E7%A0%94%E7%A9%B6/">NOIP试题研究</a>
-    </h1>
-  
-
-        
-        <a href="/2020/09/02/OI%E8%AF%95%E9%A2%98%E7%A0%94%E7%A9%B6/" class="archive-article-date">
-  	<time datetime="2020-09-02T13:39:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="NOIP试题研究"><a href="#NOIP试题研究" class="headerlink" title="NOIP试题研究"></a>NOIP试题研究</h1><h2 id="上古时期的NOIP"><a href="#上古时期的NOIP" class="headerlink" title="上古时期的NOIP"></a>上古时期的NOIP</h2><h3 id="进制位-容易-结论"><a href="#进制位-容易-结论" class="headerlink" title="进制位 [容易,结论]"></a>进制位 [容易,结论]</h3><ul>
-<li>结论题</li>
-<li>每一行有几个二位数，这个数就是几。</li>
-</ul>
-        
-          <a class="article-more-a" href="/2020/09/02/OI%E8%AF%95%E9%A2%98%E7%A0%94%E7%A9%B6/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">NOIP</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/02/OI%E8%AF%95%E9%A2%98%E7%A0%94%E7%A9%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -366,10 +219,10 @@ f[i][j] = f[i-1][j]\times (j+1)+f[i-1][j-1]\times (i-j)</script></li>
     <script>
 	var yiliaConfig = {
 		mathjax: true,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: false,
