@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>不等数列题解 | Micoael_Primo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="今天模拟赛正好做到了这道题。不难发现这是一道递推的题目。 在考试时候的做法 首先保证自己的部分分可以拿到。 观察数据范围$n\leq 10$. 枚举复杂度$\mathcal O(n!)$. 利用C++ algorithm里面的的next_permutation不难写出暴力代码。  考虑正解 定义状态$f[i][j]$表示考虑前面$i$个数字，有$j$个$&lt;$符号。 我们观察这样有什么性质：">
+  <meta name="description" content="今天模拟赛正好做到了这道题。不难发现这是一道递推的题目。 在考试时候的做法 首先保证自己的部分分可以拿到。 观察数据范围$n\leq 10$. 枚举复杂度$\mathcal O(n!)$. 利用C++ algorithm里面的的next_permutation不难写出暴力代码。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="不等数列题解">
 <meta property="og:url" content="http://example.com/2020/09/03/%E4%B8%8D%E7%AD%89%E6%95%B0%E5%88%97%E9%A2%98%E8%A7%A3/index.html">
 <meta property="og:site_name" content="Micoael_Primo">
-<meta property="og:description" content="今天模拟赛正好做到了这道题。不难发现这是一道递推的题目。 在考试时候的做法 首先保证自己的部分分可以拿到。 观察数据范围$n\leq 10$. 枚举复杂度$\mathcal O(n!)$. 利用C++ algorithm里面的的next_permutation不难写出暴力代码。  考虑正解 定义状态$f[i][j]$表示考虑前面$i$个数字，有$j$个$&lt;$符号。 我们观察这样有什么性质：">
+<meta property="og:description" content="今天模拟赛正好做到了这道题。不难发现这是一道递推的题目。 在考试时候的做法 首先保证自己的部分分可以拿到。 观察数据范围$n\leq 10$. 枚举复杂度$\mathcal O(n!)$. 利用C++ algorithm里面的的next_permutation不难写出暴力代码。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-09-03T05:40:10.000Z">
-<meta property="article:modified_time" content="2020-09-03T05:43:43.818Z">
+<meta property="article:modified_time" content="2020-09-03T05:45:25.972Z">
 <meta property="article:author" content="MP">
 <meta property="article:tag" content="DP">
 <meta name="twitter:card" content="summary">
@@ -173,6 +173,7 @@
 <li>观察数据范围$n\leq 10$. 枚举复杂度$\mathcal O(n!)$.</li>
 <li>利用C++ <code>algorithm</code>里面的的<code>next_permutation</code>不难写出暴力代码。</li>
 </ul>
+<a id="more"></a>
 <h4 id="考虑正解"><a href="#考虑正解" class="headerlink" title="考虑正解"></a><strong>考虑正解</strong></h4><ul>
 <li>定义状态$f[i][j]$表示考虑前面$i$个数字，有$j$个$&lt;$符号。</li>
 <li>我们观察这样有什么性质：</li>
